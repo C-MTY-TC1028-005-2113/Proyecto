@@ -1,4 +1,4 @@
-# Avance1 Clase Serie y Clase Episodio
+# Proyecto - entrega final
 
 <img alt="points bar" align="right" height="36" src="../../blob/status/.github/activity-icons/points-bar.svg" />
 
@@ -6,16 +6,16 @@
 ```c++
 //
 //  main.cpp
-//  Avance1
+//  
 //
-//  Created by Ma. Guadalupe Roque Díaz de León on 11/11/22.
-//
+//  Created by Ma. Guadalupe Roque Díaz de León on 27/11/22.
 
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 #include "Serie.h"
 #include "Episodio.h"
+#include "Series.h"
 using namespace std;
 
 void leerSerie(std::string &_id, std::string &_titulo, int &_duracion, std::string &_genero, int &_calificacion, int &_cantEpisodios){
@@ -58,14 +58,15 @@ int menu( ){ //: Función que despliega el siguiente menú de opciones y lee y r
 
 int main() {
     // 1º Declaración de objetos de las clase creadas, llamar a los constructores con parámatros
-    Episodio episodio1{"Graduacion", 1, 100};
-    Serie serie1_22{"AAA","ITESM", 1000,"Aprendizaje", 100, 8};
+    // Titulo temporada calificacion
+    Episodio episodio1{"GRADUACION", 1, 100}; // calificacion, episodios
+    Serie serie1_22{"TEC","ITESM", 1000,"APRENDIZAJE", 0, 0};
+    Series negocio;
     
     // 2º Declaración de variables
-    int  opcion, temporada, duracion, calificacion, cantEpisodios;
+    int  index, opcion, temporada, duracion, calificacion, cantEpisodios;
     std::string id,titulo,genero;
    
-     
     //* 3º Inicializar la vccc antes del ciclo
     opcion = menu();
     
@@ -81,7 +82,7 @@ int main() {
             case 2:
                 //  cout << "Ingresa el nuevo id:";
                 cin >> id;
-                serie1_22.setID(id);
+                serie1_22.setId(id);
                 break;
             case 3:
                 //  cout << "Ingresa titulo:";
@@ -142,6 +143,43 @@ int main() {
             case 17: // getCalificacion
                 cout << episodio1.getCalificacion() << endl;
                 break;
+            case 18: //
+                serie1_22.addEpisodio(Episodio{"Pozole Verde", 2, 100});// instancia anonima de la clase Episodio
+                serie1_22.addEpisodio(Episodio{"Mangu Dominicano", 3, 100});
+                serie1_22.addEpisodio(Episodio{"Machacado", 4, 100});
+                break;
+            case 19: //
+                serie1_22.delEpisodio();
+                break;
+            case 20: //
+                // se pide el episodio 1
+                cin >> index;
+                episodio1 = serie1_22.getEpisodio(index);
+                if (index == -1){
+                    cout << "No existe el episodio\n";
+                }
+                else{
+                    cout << episodio1.str() << endl;
+                }
+                break;
+            case 21: //
+                serie1_22.calculaCalificacionPromedio();
+                break;
+            case 22: //
+                negocio.leerArchivo();
+                break;
+            case 23: //
+                negocio.calcularCalPromedioSerie();
+                negocio.reporteFrecuenciasYPromedioSeries();
+                break;
+            case 24: //
+                cout << negocio.getCantidadSeries() << endl;
+                negocio.addSerie(serie1_22);
+                cout << negocio.getCantidadSeries() << endl;
+                break;
+            case 25: //
+                negocio.reporteFrecuenciasYPromedioSeries();
+                break;
             default:
                 break;
         }
@@ -153,57 +191,49 @@ int main() {
 }
 
 
-
 ```
 # CASOS DE PRUEBA
 ```c++
 /* Casos de Prueba
-//  Test 1 - Avance1 
+//  Test 1 - 
 Datos de entrada:
 8
 11
-1
-AA1
-Tec 21
-2000
-Aprendizaje
-200
-20
+2
+TEC21
 8
 3
-Tec 21 Objetos
+ITESM21
 8
 4
-10000
+1
+8
+5
+SUPER_APRENDIZAJE
 8
 0
 
-Datos de salida:
-AAA,ITESM,1000,Aprendizaje,100,8
-Graduacion,1,100
-AA1,Tec 21,2000,Aprendizaje,200,20
-AA1,Tec 21 Objetos,2000,Aprendizaje,200,20
-AA1,Tec 21 Objetos,10000,Aprendizaje,200,20
 
-Test 2 - Avance1
+Datos de salida:
+TEC,ITESM,1000,APRENDIZAJE,0,0
+  
+GRADUACION,1,100
+TEC21,ITESM,1000,APRENDIZAJE,0,0
+  
+TEC21,ITESM21,1000,APRENDIZAJE,0,0
+  
+TEC21,ITESM21,1,APRENDIZAJE,0,0
+  
+TEC21,ITESM21,1,SUPER_APRENDIZAJE,0,0
+
+Test 2 -
 
 Datos de entrada:
 11
-10
-Mi Graduacion
-2
-100
-11
-15
-16
-17
 12
-Mi Graduacion 2026
-10
-Mi Graduacion 2027
-10
-100
-11
+MI GRADUACION
+13
+2026
 14
 1000
 11
@@ -211,14 +241,118 @@ Mi Graduacion 2027
 
 
 Datos de salida:
-Graduacion,1,100
-Mi Graduacion,2,100
-Mi Graduacion
-2
-100
-Mi Graduacion 2027,10,100
-Mi Graduacion 2027,10,1000
+GRADUACION,1,100
+MI GRADUACION,2026,1000
 
+
+Test 3 - 
+
+Datos de entrada:
+8
+18
+19
+20
+8
+20
+1
+8
+21
+8
+0
+
+
+Datos de salida:
+TEC,ITESM,1000,APRENDIZAJE,0,0
+  
+No existe el episodio
+Mangu Dominicano,3,100
+TEC,ITESM,1000,APRENDIZAJE,0,2
+E0Pozole Verde,2,100
+E1Mangu Dominicano,3,100
+  
+TEC,ITESM,1000,APRENDIZAJE,100,2
+E0Pozole Verde,2,100
+E1Mangu Dominicano,3,100
+
+Test 4 - 
+
+Datos de entrada:
+22
+25
+0
+
+
+Datos de salida:
+Reporte
+1,Su,1450,Dr,100,3
+E0W,1,90
+E1T,3,90
+E2S,2,90
+  
+2,Bo,1440,Dr,100,0
+  
+3,Sa,3113,Dr,100,0
+  
+4,BB,1560,Dr,100,0
+  
+5,MK,123,Do,80,0
+  
+6,T,248,Th,90,0
+  
+7,Ch,330,Dr,90,0
+  
+8,A,484,Dr,100,2
+E0H,1,90
+E1G,1,90
+  
+9,W,600,Dr,100,0
+  
+Frecuencias
+Dr,7,77
+Do,1,11
+Th,1,11
+Total=9
+Promedio=95
+
+Test 5 - 
+
+Datos de entrada:
+22
+25
+0
+
+
+Datos de salida:
+Reporte
+1,Su,1450,Dr,90,3
+E0W,1,90
+E1T,3,90
+E2S,2,90
+
+2,Bo,1440,Dr,0,0
+  
+3,Sa,3113,Dr,0,0
+  
+4,BB,1560,Dr,0,0
+  
+5,MK,123,Do,0,0
+  
+6,T,248,Th,0,0
+  
+7,Ch,330,Dr,0,0
+  
+8,A,484,Dr,90,2
+E0H,1,90
+E1G,1,90
+  
+9,W,600,Dr,0,0
+  
+Frecuencias
+Dr,7,77
+Do,1,11
+Th,1,11
+Total=9
+Promedio=20
 
 ```
 
