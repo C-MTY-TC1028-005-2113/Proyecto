@@ -2,24 +2,34 @@
   "tests": [
     {
       "name": "Test 1 - Avance1 Nota - la , solo es separador de losdatos de entrada: 8,11,1,AA1,Tec21,2000,Aprendizaje,200,20,8,3,Tec 21 Objetos,8,4,10000,8,0",
-      "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp",
+      "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp Series.cpp",
       "run": "./main",
       "input": "8\n11\n1\nAA1\nTec 21\n2000\nAprendizaje\n200\n20\n8\n3\nTec 21 Objetos\n8\n4\n10000\n8\n0",
       "output": "AAA,ITESM,1000,Aprendizaje,100,8\nGraduacion,1,100\nAA1,Tec 21,2000,Aprendizaje,200,20\nAA1,Tec 21 Objetos,2000,Aprendizaje,200,20\nAA1,Tec 21 Objetos,10000,Aprendizaje,200,20\n",
       "comparison": "included",
       "timeout": 2,
-      "points": 50
+      "points": 25
     },
      {
-      "name": "Test 2 - Avance1 Nota - la , solo es separador de losdatos de entrada: 11,10,Mi Graduacion,2,100,11,15,16,17,12,Mi Graduacion 2026,10,Mi Graduacion 2027,10,100,11,14,1000,11,0",
-      "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp",
+      "name": "Test 2 - Avance2 Nota - la , solo es separador de losdatos de entrada: 11,10,Mi Graduacion,2,100,11,15,16,17,12,Mi Graduacion 2026,10,Mi Graduacion 2027,10,100,11,14,1000,11,0",
+      "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp Series.cpp",
       "run": "./main",
       "input": "11\n10\nMi Graduacion\n2\n100\n11\n15\n16\n17\n12\nMi Graduacion 2026\n10\nMi Graduacion 2027\n10\n100\n11\n14\n1000\n11\n0\n",
       "output": "Graduacion,1,100\nMi Graduacion,2,100\nMi Graduacion\n2\n100\nMi Graduacion 2027,10,100\nMi Graduacion 2027,10,1000\n",
       "comparison": "included",
       "timeout": 2,
-      "points": 50
-    }
+      "points": 25
+    },
+   {
+    "name": "Test 3 - Avance3 Nota - la , solo es separador de losdatos de entrada: 11,10,Mi Graduacion,2,100,11,15,16,17,12,Mi Graduacion 2026,10,Mi Graduacion 2027,10,100,11,14,1000,11,0",
+    "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp Series.cpp",
+    "run": "./main",
+    "input": "22\n23\n",
+    "output": "Reporte\n1,Succession,1450,Drama,88,5\nE0Which Side Are You On?,1,90\nE1Too Much Birthday,3,90\nE2Safe Room,2,90\nE3This is Not for Tears,2,90\nE4Mass in time of War,3,80\n\n2,The Boys,1440,Drama,0,0\n\n3,Better Call Saul,3113,Drama,0,0\n\n4,Breaking Bad,1560,Drama,0,0\n\n5,A despertar la felicidad!con Marie Kondo,123,Documental,0,0\n\n6,Typewriter,248,Thriller,0,0\n\n7,Chernobyl,330,Drama,0,0\n\n8,Your lie in april,484,Drama,94,5\nE0Hearts come together,1,90\nE1Goodbye Hero,1,90\nE2Hand in hand,1,90\nE3Snow,1,100\nE4Spring wind,1,100\n\n9,Warrior Nun,600,Drama,0,0\n\nFrecuencias Absolutas y Relativas\nDrama,7,77\nDocumental,1,11\nThriller,1,11\nTotal Series=9\nPromedio de Series=20\n"
+    "comparison": "included",
+    "timeout": 2,
+    "points": 25
+  }
+
   ]
 }
-
