@@ -1,35 +1,56 @@
 {
   "tests": [
     {
-      "name": "Test 1 - Avance1 Nota - la , solo es separador de losdatos de entrada: 8,11,1,AA1,Tec21,2000,Aprendizaje,200,20,8,3,Tec 21 Objetos,8,4,10000,8,0",
+      "name": "Test 1:  8\n11\n2\nTEC21\n8\n3\nITESM21\n8\n4\n1\n8\n5\nSUPER_APRENDIZAJE\n8\n0",
       "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp Series.cpp",
       "run": "./main",
-      "input": "8\n11\n1\nAA1\nTec 21\n2000\nAprendizaje\n200\n20\n8\n3\nTec 21 Objetos\n8\n4\n10000\n8\n0",
-      "output": "AAA,ITESM,1000,Aprendizaje,100,8\nGraduacion,1,100\nAA1,Tec 21,2000,Aprendizaje,200,20\nAA1,Tec 21 Objetos,2000,Aprendizaje,200,20\nAA1,Tec 21 Objetos,10000,Aprendizaje,200,20\n",
+      "input": "8\n11\n2\nTEC21\n8\n3\nITESM21\n8\n4\n1\n8\n5\nSUPER_APRENDIZAJE\n8\n0\n",
+      "output": "TEC,ITESM,1000,APRENDIZAJE,0,0\n\nGRADUACION,1,100\nTEC21,ITESM,1000,APRENDIZAJE,0,0\n\nTEC21,ITESM21,1000,APRENDIZAJE,0,0\n\nTEC21,ITESM21,1,APRENDIZAJE,0,0\n\nTEC21,ITESM21,1,SUPER_APRENDIZAJE,0,0\n\n",
       "comparison": "included",
       "timeout": 2,
-      "points": 25
+      "points": 20
     },
      {
-      "name": "Test 2 - Avance2 Nota - la , solo es separador de losdatos de entrada: 11,10,Mi Graduacion,2,100,11,15,16,17,12,Mi Graduacion 2026,10,Mi Graduacion 2027,10,100,11,14,1000,11,0",
+      "name": "Test 2 - : 11\n12\nMI GRADUACION\n13\n2026\n14\n1000\n11\n0\n",
       "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp Series.cpp",
       "run": "./main",
-      "input": "11\n10\nMi Graduacion\n2\n100\n11\n15\n16\n17\n12\nMi Graduacion 2026\n10\nMi Graduacion 2027\n10\n100\n11\n14\n1000\n11\n0\n",
-      "output": "Graduacion,1,100\nMi Graduacion,2,100\nMi Graduacion\n2\n100\nMi Graduacion 2027,10,100\nMi Graduacion 2027,10,1000\n",
+      "input": "11\n12\nMI GRADUACION\n13\n2026\n14\n1000\n11\n0\n",
+      "output": "GRADUACION,1,100\nMI GRADUACION,2026,1000\n",
       "comparison": "included",
       "timeout": 2,
-      "points": 25
+      "points": 20
     },
    {
-    "name": "Test 3 - Avance3 Nota - la , solo es separador de losdatos de entrada: 11,10,Mi Graduacion,2,100,11,15,16,17,12,Mi Graduacion 2026,10,Mi Graduacion 2027,10,100,11,14,1000,11,0",
+    "name": "Test 3 - 8\n18\n19\n20\n8\n20\n1\n8\n21\n8\n0\n",
     "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp Series.cpp",
     "run": "./main",
-    "input": "22\n23\n",
-    "output": "Reporte\n1,Succession,1450,Drama,88,5\nE0Which Side Are You On?,1,90\nE1Too Much Birthday,3,90\nE2Safe Room,2,90\nE3This is Not for Tears,2,90\nE4Mass in time of War,3,80\n\n2,The Boys,1440,Drama,0,0\n\n3,Better Call Saul,3113,Drama,0,0\n\n4,Breaking Bad,1560,Drama,0,0\n\n5,A despertar la felicidad!con Marie Kondo,123,Documental,0,0\n\n6,Typewriter,248,Thriller,0,0\n\n7,Chernobyl,330,Drama,0,0\n\n8,Your lie in april,484,Drama,94,5\nE0Hearts come together,1,90\nE1Goodbye Hero,1,90\nE2Hand in hand,1,90\nE3Snow,1,100\nE4Spring wind,1,100\n\n9,Warrior Nun,600,Drama,0,0\n\nFrecuencias Absolutas y Relativas\nDrama,7,77\nDocumental,1,11\nThriller,1,11\nTotal Series=9\nPromedio de Series=20\n"
+    "input": "8\n18\n19\n20\n8\n20\n1\n8\n21\n8\n0\n",
+    "output": "TEC,ITESM,1000,APRENDIZAJE,0,0\n\nNo existe el episodio\nMangu Dominicano,3,100\nTEC,ITESM,1000,APRENDIZAJE,0,2\nE0Pozole Verde,2,100\nE1Mangu Dominicano,3,100\n\nTEC,ITESM,1000,APRENDIZAJE,100,2\nE0Pozole Verde,2,100\nE1Mangu Dominicano,3,100\n\n",
     "comparison": "included",
     "timeout": 2,
-    "points": 25
-  }
+    "points": 20
+  },
+  {
+   "name": "Test 4 - 22\n25\n0\n",
+   "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp Series.cpp",
+   "run": "./main",
+   "input": "22\n25\n0\n",
+   "output": "Reporte\n1,Su,1450,Dr,100,3\nE0W,1,90\nE1T,3,90\nE2S,2,90\n\n2,Bo,1440,Dr,100,0\n\n3,Sa,3113,Dr,100,0\n\n4,BB,1560,Dr,100,0\n\n5,MK,123,Do,80,0\n\n6,T,248,Th,90,0\n\n7,Ch,330,Dr,90,0\n\n8,A,484,Dr,100,2\nE0H,1,90\nE1G,1,90\n\n9,W,600,Dr,100,0\n\nFrecuencias\nDr,7,77\nDo,1,11\nTh,1,11\nTotal=9\nPromedio=95\n",
+   "comparison": "included",
+   "timeout": 2,
+   "points": 20
+ },
+    
+   {
+   "name": "Test 5 - 22\n23\n0\n",
+   "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp Series.cpp",
+   "run": "./main",
+   "input": "22\n23\n0\n",
+   "output": "Reporte\n1,Su,1450,Dr,90,3\nE0W,1,90\nE1T,3,90\nE2S,2,90\n\n2,Bo,1440,Dr,0,0\n\n3,Sa,3113,Dr,0,0\n\n4,BB,1560,Dr,0,0\n\n5,MK,123,Do,0,0\n\n6,T,248,Th,0,0\n\n7,Ch,330,Dr,0,0\n\n8,A,484,Dr,90,2\nE0H,1,90\nE1G,1,90\n\n9,W,600,Dr,0,0\n\nFrecuencias\nDr,7,77\nDo,1,11\nTh,1,11\nTotal=9\nPromedio=20\n",
+   "comparison": "included",
+   "timeout": 2,
+   "points": 20
+ }
 
   ]
 }
