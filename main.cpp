@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  Avance3
+//  Proyecto
 //
 //  Created by Ma. Guadalupe Roque Díaz de León on 11/11/22.
 
