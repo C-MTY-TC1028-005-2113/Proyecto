@@ -1,0 +1,25 @@
+{
+  "tests": [
+    {
+      "name": "Test 1 - Avance1 Nota - la , solo es separador de losdatos de entrada: 8,11,1,AA1,Tec21,2000,Aprendizaje,200,20,8,3,Tec 21 Objetos,8,4,10000,8,0",
+      "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp",
+      "run": "./main",
+      "input": "8\n11\n1\nAA1\nTec 21\n2000\nAprendizaje\n200\n20\n8\n3\nTec 21 Objetos\n8\n4\n10000\n8\n0",
+      "output": "AAA,ITESM,1000,Aprendizaje,100,8\nGraduacion,1,100\nAA1,Tec 21,2000,Aprendizaje,200,20\nAA1,Tec 21 Objetos,2000,Aprendizaje,200,20\nAA1,Tec 21 Objetos,10000,Aprendizaje,200,20\n",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 50
+    },
+     {
+      "name": "Test 2 - Avance1 Nota - la , solo es separador de losdatos de entrada: 11,10,Mi Graduacion,2,100,11,15,16,17,12,Mi Graduacion 2026,10,Mi Graduacion 2027,10,100,11,14,1000,11,0",
+      "setup": "g++ -g -o main main.cpp Serie.cpp Episodio.cpp",
+      "run": "./main",
+      "input": "11\n10\nMi Graduacion\n2\n100\n11\n15\n16\n17\n12\nMi Graduacion 2026\n10\nMi Graduacion 2027\n10\n100\n11\n14\n1000\n11\n0\n",
+      "output": "Graduacion,1,100\nMi Graduacion,2,100\nMi Graduacion\n2\n100\nMi Graduacion 2027,10,100\nMi Graduacion 2027,10,1000\n",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 50
+    }
+  ]
+}
+
