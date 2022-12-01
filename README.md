@@ -318,7 +318,7 @@ Test 5 -
 
 Datos de entrada:
 22
-25
+23
 0
 
 
